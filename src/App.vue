@@ -1,28 +1,47 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+     <div class="header-div">
+        <HeaderBar msg="Top"/>
+        <SubHeaderBar msg="SubTop"/>
+      </div>
+       <div class="main-content">
+          <!-- the router outlet, where all matched components would be viewed -->
+          <router-view></router-view>
+      </div>
+    <FooterBar msg="Bottom"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import HeaderBar from './components/HeaderBar.vue'
+import SubHeaderBar from './components/SubHeaderBar.vue'
+import FooterBar from './components/FooterBar.vue'
+// Custom input tags
+// import VoerroTagsInput from '@voerro/vue-tagsinput'
 
 export default {
-  name: 'App',
+  name: 'app',
+  // props: {
+  //   selectedTags:[]
+  // },
   components: {
-    HelloWorld
+    HeaderBar,
+    SubHeaderBar,
+    FooterBar,
+    // 'tags-input': VoerroTagsInput
+  },
+  data(){
+    return {
+      message: 'Hello',
+      selectedTags:[]
+    }
   }
 }
 </script>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  margin-top: 30px;
 }
 </style>
